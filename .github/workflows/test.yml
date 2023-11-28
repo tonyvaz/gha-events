@@ -11,3 +11,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '20' 
+            - name: Build Project
+              run: npm ci
+            - name: run testing
+              run: npm test
