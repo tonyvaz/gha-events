@@ -7,7 +7,4 @@ jobs:
         steps:
             - name: Get Repository Code
               uses: actions/checkout@v4
-            - name: Install NodeJS
-              uses: actions/setup-node
-              with:
-                node-version: '20' 
+            
