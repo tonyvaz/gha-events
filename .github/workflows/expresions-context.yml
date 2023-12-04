@@ -12,10 +12,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Print a Variable with an env variable
-              run: echo "Hello $myString"
+              run: echo "Hello ${{env.myString}}"
             - name: Print a Value using expressions
               if: env.isSingle === ${{ true }}
-              run: echo 'My age is ${{env.myAge}} and is single $isSingle'
+              run: echo 'My age is ${{env.myAge}} and is single ${{env.isSingle}}'
     Show-Context-Object:
         needs: Show-Expressions
         name: Show Context Object
