@@ -1,0 +1,25 @@
+name: Expressionas and Context Objects
+on: workflow_dispatch
+env:
+    myString: Mark
+    myAge: 25
+    isSingle: true
+    
+
+jobs: 
+    Show-Expressions:
+        name: Show some expressions and how to use them
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print a Variable with an env variable
+              run: echo "Hello $myString"
+            - name: Print a Value using expressions
+              if: env.isSingle === ${{ true }}
+              run: echo 'My age is ${{env.myAge}} and is single $isSingle'
+    Show-Context-Object:
+        needs: Show-Expressions
+        name: Show Context Object
+        runs-on: ubuntu-latest
+        steps:
+          - name: Print the value of a context object
+            run: echo '${{toJson(github)}}'
